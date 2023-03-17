@@ -75,6 +75,7 @@ class ChessRecognizer:
         yaml_file = next(iter(path.glob("*.yaml")))
         cfg = CN.load_yaml_with_base(yaml_file)
         model = torch.load(model_file, map_location=DEVICE)
+        print(model_file.name,'------->>>')
         model = device(model)
         model.eval()
         return cfg, model
@@ -82,7 +83,6 @@ class ChessRecognizer:
     def _classify_occupancy(self, img: np.ndarray, turn: chess.Color, corners: np.ndarray) -> np.ndarray:
         warped = create_occupancy_dataset.warp_chessboard_image(
             img, corners)
-        print(warped)
         square_imgs = map(functools.partial(
             create_occupancy_dataset.crop_square, warped, turn=turn), self._squares)
         square_imgs = map(Image.fromarray, square_imgs)
@@ -136,8 +136,6 @@ class ChessRecognizer:
                 if piece:
                     board.set_piece_at(square, piece)
             corners = corners / img_scale
-            print(board)
-            print(corners)
             return board, corners
 
 

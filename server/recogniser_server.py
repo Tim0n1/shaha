@@ -1,11 +1,15 @@
 from intellichess.recognition.recognition import ChessRecognizer
+import numpy as np
 import socket
 import json
 import chess
+import traceback
+from recap import URI
 # Define the server address and port
-SERVER_ADDRESS = '192.168.1.101'
+SERVER_ADDRESS = '192.168.1.103'
 SERVER_PORT = 5555
 
+recogniser = ChessRecognizer()#URI('models://transfer_learning'))
 
 # Create a socket object
 server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -36,21 +40,21 @@ while True:
 
         # Parse the message as JSON
         try:
-            board = ''
+            print(data)
             message = json.loads(data)
             img_data = message['img_data']
-            img_data = json.loads(img_data)
-            turn = message['turn']
-            print(f'Received message: {img_data}')
-            if turn:
-                board, corners = ChessRecognizer.predict(img_data, chess.WHITE)
-
-            if not turn:
-                board, corners = ChessRecognizer.predict(img_data, chess.BLACK)
+            if not isinstance(img_data, list):
+                img_data = json.loads(img_data)
+            img_data = np.asarray(img_data, dtype=int)
+            print(img_data.view())
+            print(f'Received message with shape: {img_data.shape}')
+            board, corners = recogniser.predict(img_data, chess.WHITE)
+           
             response = board.board_fen()
 
         except Exception as e:
             print(f'Error parsing JSON: {e}')
+            print(traceback.format_exc())
     # Close the client connection
     response_json = json.dumps(response)
     client_socket.close()

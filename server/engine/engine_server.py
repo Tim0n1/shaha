@@ -5,7 +5,7 @@ import json
 engine = engine.engine
 
 # Define the server address and port
-SERVER_ADDRESS = '192.168.1.105'
+SERVER_ADDRESS = '95.179.202.254'
 SERVER_PORT = 5556
 
 # Create a socket object
@@ -16,6 +16,12 @@ server_socket.bind((SERVER_ADDRESS, SERVER_PORT))
 
 # Listen for incoming connections
 server_socket.listen(1)
+
+
+def set_fen(input1, fen_starting_index):
+    if len(input1) > fen_starting_index:
+        set_fen_position(input1[fen_starting_index:])
+
 
 while True:
     # Wait for a client to connect
@@ -45,23 +51,31 @@ while True:
                 print('fen->', input1[6:])
                 response = {'message': f'game state is set to, {input1[6:]}'}
             elif input1[0:3] == '-bm':
+                set_fen(input1, 4)
                 response = {'message': engine.get_best_move(1000)}  # returns the best move according to stockfish
             elif input1[0:4] == '-gtm':
+                set_fen(input1, 5)
                 response = {'message': engine.get_top_moves()}  # returns top 3 best moves
             elif input1[0:4] == '-ser':
+                set_fen(input1, 5)
                 engine.set_elo_rating(int(input1[5:]))  # sets elo rating range(250-3200)
                 response = {'message': f'Elo rating of {input1[5:]} is set'}
             elif input1[0:5] == '-eval':
+                set_fen(input1, 6)
                 response = {'message': engine.get_evaluation()}  # returns evaluation of the current position; examples: {"type":"cp", "value":12}
                                                                                                         # {"type":"mate", "value":-3}
             elif input1[0:4] == '-imc':
+                set_fen(input1, 5)
                 response = {'message': engine.is_move_correct(input1[5:])}  # returns if move is legal; example: input: 'a2a3', output: True
             elif input1[0:5] == '-mfcp':  # makes move from current position; input format: '{move1},{move2},{move3}'; example: "g4d7,a8b8",f1d1"
+                set_fen(input1, 6)
                 moves = input1[6:].split(',')
                 response = {'message': engine.make_moves_from_current_position(moves)}
             elif input1[0:4] == '-gws':
+                set_fen(input1, 5)
                 response = {'message': engine.get_what_is_on_square(input1[5:])}  # gets what is on square: example input: 'b3'
             elif input1[0:4] == 'wmc':
+                set_fen(input1, 5)
                 response = {'message': engine.will_move_be_a_capture(input1[5:])}  #Find if a move will be a capture (and if so, what type of capture)
                                                             # examples: input: 'c3d5', output: 1 (direct capture)
                                                             # input: 'e5d6', output: 2 (en passant)

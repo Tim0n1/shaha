@@ -3,13 +3,13 @@ requires = [ "poetry>=0.12",]
 build-backend = "poetry.masonry.api"
 
 [tool.poetry]
-name = "chesscog"
+name = "intellichess"
 version = "1.0.1"
 description = "Recognise chess positions using computer vision."
 authors = [ "Georg Wölflein <georgw7777@gmail.com>",]
 include = [ "config/*.yaml", "config/**/_*.yaml",]
 [[tool.poetry.packages]]
-include = "chesscog"
+include = "intellichess"
 
 [tool.poetry.dependencies]
 python = ">=3.8,<3.11"
