@@ -24,12 +24,8 @@ At a high level, the recognition system itself consists of the following pipelin
 
 ## Installing
 
-Please consult Appendix C of my [master thesis](https://github.com/georg-wolflein/chesscog-report/raw/master/report.pdf) for a detailed set of instructions pertaining to the installation and usage of _chesscog_.
-
-There are three methods of installing and running chesscog.
-
 1. **Using poetry (recommended).**
-   Ensure you have [poetry](https://python-poetry.org) installed, then clone this repository, and install the _chesscog_:
+   Ensure you have [poetry](https://python-poetry.org) installed, then clone this repository, and install intellichess:
    ```bash
    git clone 
    cd intellichess
@@ -52,29 +48,7 @@ python -m intellichess.occupancy_classifier.download_model
 python -m intellichess.piece_classifier.download_model
 ```
 
-## Command line usage
+## Acknowledgments
 
-
-One particularly useful one is to perform an inference (see Appendix C.2.4) which can be carried out using:
-
-```bash
-python -m intellichess.recognition.recognition path_to_image.png --white
-```
-
-The output will look as follows:
-
-```
-$ python -m chesscog.recognition.recognition data://render/train/3828.png --white
-. K R . . R . .
-P . P P Q . . P
-. P B B . . . .
-. . . . . P . .
-. . b . . p . q
-. p . . . . . .
-p b p p . . . p
-. k r . . . r .
-
-
-```
-
+This project is heavily inspired by the work of [@username][(https://github.com/georg-wolflein)]. Their insights, guidance, and previous work have played a crucial role in shaping this repository. I highly recommend checking out their work [here](https://github.com/georg-wolflein/chesscog).
 
