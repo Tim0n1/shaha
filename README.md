@@ -50,5 +50,5 @@ python -m intellichess.piece_classifier.download_model
 
 ## Acknowledgments
 
-This project is heavily inspired by the work of [@username](https://github.com/georg-wolflein). Their insights, guidance, and previous work have played a crucial role in shaping this repository. I highly recommend checking out their work [here](https://github.com/georg-wolflein/chesscog).
+This project is heavily inspired by the work of [@georg-wolflein](https://github.com/georg-wolflein). Their insights, guidance, and previous work have played a crucial role in shaping this repository. I highly recommend checking out their work [here](https://github.com/georg-wolflein/chesscog).
 
