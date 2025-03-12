@@ -5,7 +5,7 @@ Backend for a mobile app to detect chess game state from real-life board images.
 The script processes real-life chessboard images to accurately determine the game state using computer vision techniques. It employs edge detection, contour analysis, and perspective transformation to detect the board and squares, followed by piece recognition using CNNs. The extracted board state is then converted into a structured format (e.g., FEN notation) for integration with chess engine.
 
 
-![home page](intellichess/image3.png)
+<img src="./intellichess/image3.png" alt="Screenshot 2" width="300">
 
 
 ## Installing
