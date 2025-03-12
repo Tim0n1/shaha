@@ -36,7 +36,7 @@ python -m intellichess.piece_classifier.download_model
 
 <div style="display: flex; justify-content: space-between;">
   <img src="./intellichess/image2.png" alt="Screenshot 2" width="300">
-   <img src="./intellichess/image.png" alt="Screenshot 1" width="220">
+   <img src="./intellichess/image.png" alt="Screenshot 1" width="300">
 </div>
 
 ## Acknowledgments
