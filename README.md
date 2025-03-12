@@ -3,6 +3,7 @@
 
 Backend for a mobile app to detect chess game state from real-life board images.
 The script processes real-life chessboard images to accurately determine the game state using computer vision techniques. It employs edge detection, contour analysis, and perspective transformation to detect the board and squares, followed by piece recognition using CNNs. The extracted board state is then converted into a structured format (e.g., FEN notation) for integration with chess engine.
+![home page](intellichess/image3.png)
 
 
 ## Installing
@@ -32,6 +33,7 @@ python -m intellichess.piece_classifier.download_model
 ```
 
 ![image](intellichess/image.png)
+![coordinate_projection](intellichess/image2.png)
 ## Acknowledgments
 
 This project is heavily inspired by the work of [@georg-wolflein](https://github.com/georg-wolflein). Their insights, guidance, and previous work have played a crucial role in shaping this repository. I highly recommend checking out their work [here](https://github.com/georg-wolflein/chesscog).
