@@ -34,7 +34,7 @@ python -m intellichess.occupancy_classifier.download_model
 python -m intellichess.piece_classifier.download_model
 ```
 
-![image](intellichess/image.png)
+<img src="./intellichess/image.png" alt="Demo Image" width="300">
 ![coordinate_projection](intellichess/image2.png)
 ## Acknowledgments
 
