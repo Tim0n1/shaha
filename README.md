@@ -34,8 +34,10 @@ python -m intellichess.occupancy_classifier.download_model
 python -m intellichess.piece_classifier.download_model
 ```
 
-<img src="./intellichess/image.png" alt="Demo Image" width="300">
-![coordinate_projection](intellichess/image2.png)
+<div style="display: flex; justify-content: space-between;">
+  <img src="./intellichess/image" alt="Screenshot 1" width="200">
+  <img src="./itellichess/image2" alt="Screenshot 2" width="200">
+</div>
 ## Acknowledgments
 
 This project is heavily inspired by the work of [@georg-wolflein](https://github.com/georg-wolflein). Their insights, guidance, and previous work have played a crucial role in shaping this repository. I highly recommend checking out their work [here](https://github.com/georg-wolflein/chesscog).
